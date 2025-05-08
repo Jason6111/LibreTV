@@ -90,6 +90,9 @@ if (localStorage.getItem('doubanEnabled') === null) {     localStorage.setItem('
         
         // 初始更新显示状态
         updateDoubanVisibility();
+
+        // 滚动到页面顶部
+        window.scrollTo(0, 0);
     }
 
     // 加载用户标签
