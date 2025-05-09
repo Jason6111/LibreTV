@@ -1,5 +1,5 @@
 // 全局变量
-let selectedAPIs = JSON.parse(localStorage.getItem('selectedAPIs') || '["heimuer", "ffzy", "tyyszy", "zy360", "wolong", "hwba", "jisu", "dbzy", "bfzy", "mozhua", "mdzy", "ruyi", "zuid", "yinghua", "baidu", "wujin"]'); // 默认选中天涯资源、暴风资源和如意资源
+let selectedAPIs = JSON.parse(localStorage.getItem('selectedAPIs') || '["heimuer", "ffzy", "tyyszy", "zy360", "wolong", "hwba", "jisu", "dbzy", "bfzy", "mozhua", "mdzy", "ruyi", "zuid", "yinghua", "baidu", "dyttzy", "wujin"]'); // 默认选中天涯资源、暴风资源和如意资源
 let customAPIs = JSON.parse(localStorage.getItem('customAPIs') || '[]'); // 存储自定义API列表
 
 // 添加当前播放的集数索引
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 设置默认API选择（如果是第一次加载）
     if (!localStorage.getItem('hasInitializedDefaults')) {
         // 仅选择天涯资源、暴风资源和如意资源
-        selectedAPIs = ["heimuer", "ffzy", "tyyszy", "zy360", "wolong", "hwba", "jisu", "dbzy", "bfzy", "mozhua", "mdzy", "ruyi", "zuid", "yinghua", "baidu", "wujin"];
+        selectedAPIs = ["tyyszy", "bfzy","dyttzy", "ruyi"];
         localStorage.setItem('selectedAPIs', JSON.stringify(selectedAPIs));
         
         // 默认选中过滤开关
@@ -372,7 +372,7 @@ function updateSelectedAPIs() {
     const customApiIndices = Array.from(customApiCheckboxes).map(input => 'custom_' + input.dataset.customIndex);
     
     // 合并内置和自定义API
-    selectedAPIs = ["heimuer", "ffzy", "tyyszy", "zy360", "wolong", "hwba", "jisu", "dbzy", "bfzy", "mozhua", "mdzy", "ruyi", "zuid", "yinghua", "baidu", "wujin"];
+    selectedAPIs = [...builtInApis, ...customApiIndices];
     
     // 保存到localStorage
     localStorage.setItem('selectedAPIs', JSON.stringify(selectedAPIs));
