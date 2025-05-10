@@ -21,29 +21,32 @@ const SITE_CONFIG = {
 
 // API站点配置
 const API_SITES = {
-    heimuer: {
-        api: 'https://json.heimuer.xyz',
-        name: '黑木耳',
-        detail: 'https://heimuer.tv',
-    },
     dyttzy: {
         api: 'http://caiji.dyttzyapi.com',
         name: '电影天堂资源',
         detail: 'http://caiji.dyttzyapi.com',
+    },
+    ruyi: {
+        api: 'https://cj.rycjapi.com',
+        name: '如意资源',
+    },
+    bfzy: {
+        api: 'https://bfzyapi.com',
+        name: '暴风资源',
+    },
+    tyyszy: {
+        api: 'https://tyyszy.com',
+        name: '天涯资源',
     },
     ffzy: {
         api: 'http://ffzy5.tv',
         name: '非凡影视',
         detail: 'http://ffzy5.tv',
     },
-    tyyszy: {
-        api: 'https://tyyszy.com',
-        name: '天涯资源',
-    },
-    ckzy: {
-        api: 'https://www.ckzy1.com',
-        name: 'CK资源',
-        adult: true
+    heimuer: {
+        api: 'https://json.heimuer.xyz',
+        name: '黑木耳',
+        detail: 'https://heimuer.tv',
     },
     zy360: {
         api: 'https://360zy.com',
@@ -66,9 +69,10 @@ const API_SITES = {
         api: 'https://dbzy.com',
         name: '豆瓣资源',
     },
-    bfzy: {
-        api: 'https://bfzyapi.com',
-        name: '暴风资源',
+    huya: {
+        api: 'https://www.huyaapi.com',
+        name: '虎牙资源',
+        detail: 'https://www.huyaapi.com',
     },
     mozhua: {
         api: 'https://mozhuazy.com',
@@ -78,9 +82,35 @@ const API_SITES = {
         api: 'https://www.mdzyapi.com',
         name: '魔都资源',
     },
-    ruyi: {
-        api: 'https://cj.rycjapi.com',
-        name: '如意资源',
+    zuid: {
+        api: 'https://api.zuidapi.com',
+        name: '最大资源'
+    },
+    yinghua: {
+        api: 'https://m3u8.apiyhzy.com',
+        name: '樱花资源'
+    },
+    baidu: {
+        api: 'https://api.apibdzy.com',
+        name: '百度云资源'
+    },
+    wujin: {
+        api: 'https://api.wujinapi.me',
+        name: '无尽资源'
+    },
+    wwzy: {
+        api: 'https://wwzy.tv',
+        name: '旺旺短剧'
+    },
+    ikun: {
+        api: 'https://ikunzyapi.com',
+        name: 'iKun资源'
+    },
+    // 下面是一些成人内容的API源，默认隐藏，使用本项目浏览黄色内容违背项目初衷
+    ckzy: {
+        api: 'https://www.ckzy1.com',
+        name: 'CK资源',
+        adult: true
     },
     jkun: {
         api: 'https://jkunzyapi.com',
@@ -113,26 +143,10 @@ const API_SITES = {
         adult: true,
         detail: 'https://hsckzy.vip'
     },
-    zuid: {
-        api: 'https://api.zuidapi.com',
-        name: '最大资源'
-    },
     yutu: {
         api: 'https://yutuzy10.com',
         name: '玉兔资源',
         adult: true
-    },
-    yinghua: {
-        api: 'https://m3u8.apiyhzy.com',
-        name: '樱花资源'
-    },
-    baidu: {
-        api: 'https://api.apibdzy.com',
-        name: '百度云资源'
-    },
-    wujin: {
-        api: 'https://api.wujinapi.me',
-        name: '无尽资源'
     },
 };
 
