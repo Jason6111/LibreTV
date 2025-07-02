@@ -40,7 +40,7 @@ app.use(cors({
 
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   next();
 });
@@ -121,6 +121,13 @@ function isValidUrl(urlString) {
     return false;
   }
 }
+
+// 修复反向代理处理过的路径
+app.use('/proxy', (req, res, next) => {
+  const targetUrl = req.url.replace(/^\//, '').replace(/(https?:)\/([^/])/, '$1//$2');
+  req.url = '/' + encodeURIComponent(targetUrl);
+  next();
+});
 
 // 代理路由
 app.get('/proxy/:encodedUrl', async (req, res) => {
