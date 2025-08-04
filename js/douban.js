@@ -58,7 +58,7 @@ function initDouban() {
     // 设置豆瓣开关的初始状态
     const doubanToggle = document.getElementById('doubanToggle');
     if (doubanToggle) {
-if (localStorage.getItem('doubanEnabled') === null) {     localStorage.setItem('doubanEnabled', 'true'); }
+ if (localStorage.getItem('doubanEnabled') === null) {      localStorage.setItem('doubanEnabled', 'true');  }
         const isEnabled = localStorage.getItem('doubanEnabled') === 'true';
         doubanToggle.checked = isEnabled;
         
@@ -118,7 +118,7 @@ function updateDoubanVisibility() {
     const doubanArea = document.getElementById('doubanArea');
     if (!doubanArea) return;
     
-if (localStorage.getItem('doubanEnabled') === null) {     localStorage.setItem('doubanEnabled', 'true'); }
+ if (localStorage.getItem('doubanEnabled') === null) {      localStorage.setItem('doubanEnabled', 'true');  }
     const isEnabled = localStorage.getItem('doubanEnabled') === 'true';
     const isSearching = document.getElementById('resultsArea') && 
         !document.getElementById('resultsArea').classList.contains('hidden');
@@ -459,8 +459,13 @@ async function fetchDoubanData(url) {
     };
 
     try {
+        // 添加鉴权参数到代理URL
+        const proxiedUrl = await window.ProxyAuth?.addAuthToProxyUrl ? 
+            await window.ProxyAuth.addAuthToProxyUrl(PROXY_URL + encodeURIComponent(url)) :
+            PROXY_URL + encodeURIComponent(url);
+            
         // 尝试直接访问（豆瓣API可能允许部分CORS请求）
-        const response = await fetch(PROXY_URL + encodeURIComponent(url), fetchOptions);
+        const response = await fetch(proxiedUrl, fetchOptions);
         clearTimeout(timeoutId);
         
         if (!response.ok) {
